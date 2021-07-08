@@ -13,7 +13,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/exams/",
+  "start_url": "/",
   "background_color": "white",
   "display": "standalone"
 }
