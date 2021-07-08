@@ -1,9 +1,7 @@
 body {
     text-align: center;
     width: 100%;
-    background-image: url('background.png');
-    background-repeat: no-repeat;
-    background-size: auto;
+    background-color: white;
 }
 
 .questionInputs {

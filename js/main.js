@@ -173,13 +173,13 @@ var view = {
             document.getElementById('questionList').innerHTML = "   <thead>" +
                 "            <tr>" +
                 "            <th scope='col'>Question</th>" +
-                "            <th class='d-none d-sm-block' scope='col'>Correct Answer</th>" +
-                "            <th class='d-none d-sm-block' scope='col'>Wrong Answer 1</th>" +
-                "            <th class='d-none d-sm-block' scope='col'>Wrong Answer 2</th>" +
+                "            <th class='hidden-xs' scope='col'>Correct Answer</th>" +
+                "            <th class='hidden-xs' scope='col'>Wrong Answer 1</th>" +
+                "            <th class='hidden-xs' scope='col'>Wrong Answer 2</th>" +
                 "            <th class='' scope='col'>Action</th>" +
                 "            </tr>" +
                 "            </thead><tbody>" + selectedQuiz.questions.map(function (eachQuestion, key) {
-                    return "<tr id='" + key + "'> <th>" + eachQuestion.question + "</th> <th class='d-none d-sm-block'>" + eachQuestion.correct + " </th> <th class='d-none d-sm-block'>" + eachQuestion.wrongOne + " </th> <th class='d-none d-sm-block'>" + eachQuestion.wrongTwo + " </th>" +
+                    return "<tr id='" + key + "'> <th>" + eachQuestion.question + "</th> <th class='hidden-xs'>" + eachQuestion.correct + " </th> <th class='hidden-xs'>" + eachQuestion.wrongOne + " </th> <th class='hidden-xs'>" + eachQuestion.wrongTwo + " </th>" +
                         "<th class='btn-danger deleteQuestion'> Delete </th> </tr>"
                 }).join('') + "</tbody>";
 
@@ -242,11 +242,11 @@ function showAllQuiz() {
     document.getElementById('quizList').innerHTML = "   <thead>" +
         "            <tr>" +
         "            <th scope='col'>Quiz Name</th>" +
-        "            <th class='d-none d-sm-block hidden-sm' scope='col'>Number Of Questions</th>" +
+        "            <th class='hidden-xs hidden-sm' scope='col'>Number Of Questions</th>" +
         "            <th scope='col'>Action</th>" +
         "            </tr>" +
         "            </thead><tbody>" + quizList.allQuiz.map(function (eachQuiz) {
-            return "<tr> <th>" + eachQuiz.name + "</th> <th class='d-none d-sm-block hidden-sm' id='questionsNum-" + eachQuiz.id + "'>" + eachQuiz.questions.length + " </th><th id='" + eachQuiz.id + "' > <button id='selectQuiz__" + eachQuiz.id + "' class='btn btn-info selectQuizButton'> Select Quiz </button></th> </tr>"
+            return "<tr> <th>" + eachQuiz.name + "</th> <th class='hidden-xs hidden-sm' id='questionsNum-" + eachQuiz.id + "'>" + eachQuiz.questions.length + " </th><th id='" + eachQuiz.id + "' > <button id='selectQuiz__" + eachQuiz.id + "' class='btn btn-info selectQuizButton'> Select Quiz </button></th> </tr>"
         }).join('') + "</tbody>";
 
     document.querySelectorAll('.selectQuizButton').forEach(item => {
@@ -310,9 +310,9 @@ const leaderBoardHandler = {
 
         allHistoryItems.sort((history1, history2) => (history1[sortBy] > history2[sortBy]) ? direction : ((history2[sortBy] > history1[sortBy]) ? -direction : 0));
         allHistoryItems.slice(0, 10);
-        globalLeaderBoardElement.innerHTML = "<thead><tr> <th> Player Name </th> <th>Correct %</th><th class='d-none d-sm-block'>Quiz Name</th><th class='d-none d-sm-block'>Correct Answers</th> <th class='d-none d-sm-block'>Total Answers</th><th class='d-none d-sm-block'>Datetime</th></tr></thead>"
+        globalLeaderBoardElement.innerHTML = "<thead><tr> <th> Player Name </th> <th>Correct %</th><th class='visible-md visible-lg'>Quiz Name</th><th class='visible-md visible-lg'>Correct Answers</th> <th class='visible-md visible-lg'>Total Answers</th><th class='visible-md visible-lg'>Datetime</th></tr></thead>"
             + "<tbody>" + allHistoryItems.map(function (historyItem) {
-                return `<tr> <th> ${historyItem.playerName} </th> <th>${historyItem.successPerc}%</th><th class="d-none d-sm-block">${historyItem.parentQuizName}</th><th class="d-none d-sm-block">${historyItem.correctAnswers}</th> <th class="d-none d-sm-block">${historyItem.totalAnswers}</th><th class="d-none d-sm-block">${historyItem.createdAt.toString()}</th></tr>`;
+                return `<tr> <th> ${historyItem.playerName} </th> <th>${historyItem.successPerc}%</th><th class="visible-md visible-lg">${historyItem.parentQuizName}</th><th class="visible-md visible-lg">${historyItem.correctAnswers}</th> <th class="visible-md visible-lg">${historyItem.totalAnswers}</th><th class="visible-md visible-lg">${historyItem.createdAt.toString()}</th></tr>`;
             }).join('') + "</tbody>"
     }
 }
