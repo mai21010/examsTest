@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Quiz Creator</title>
+      <meta
+        charset="utf-8"/
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <link rel="manifest"      href="manifest.json">
+    <link rel="shortcut icon" href="favicon.ico">    
+    
+    <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css"/>
+    <script src="bootstrap-4.3.1-dist/js/jquery.min.js"></script>
+    <script src="bootstrap-4.3.1-dist/js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Quiz Creator</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active" id="quizListMenu"><a>Home</a></li>
+        </ul>
+    </div>
+</nav>
+<div id="allQuiz">
+    <h3>Quiz List</h3>
+    <hr>
+    <table class="table" id="quizList">
+
+    </table>
+    <div id="newQuizContainer">
+        <input id="newQuizTitle" type="text" placeholder="QuizTitle" required/>
+        <button class="btn btn-info" id="createNewQuiz"> Create New Quiz</button>
+    </div>
+    <hr>
+    <h4> Leaderboard </h4>
+    <div class="dropdown">
+        <button class="dropbtn rounded-circle">Sort By</button>
+        <div class="dropdown-content">
+            <div class="sortDropdownOption " id="successPerc_1">Correct % ASC</div>
+            <div class="sortDropdownOption" id="successPerc_-1">Correct % DESC</div>
+            <div class="sortDropdownOption" id="name_1">Quiz Name ASC</div>
+            <div class="sortDropdownOption" id="name_-1">Quiz Name DESC</div>
+            <div class="sortDropdownOption" id="createdAt_1">Datetime ASC</div>
+            <div class="sortDropdownOption" id="createdAt_-1">Datetime DESC</div>
+        </div>
+    </div>
+    <hr>
+
+    </div>
+<div class="loader" id="loader"></div>
+    <table class="table" id="top10PlaysOfAllQuiz">
+
+    </table>
+</div>
+<div id="selectedQuiz" class="col-lg-6 col-md-8 col-xs-12 align-items-center mx-auto">
+    <div id="quizInfo">
+        <h2 id="quizTitle"></h2>
+        <div class="col-lg-6 col-md-6 col-xs-12 form-group questionInputs mx-auto" id="addQuestions">
+            <input id="questionInput" type="text" placeholder="Question">
+            <input id="correctInput" type="text" placeholder="Correct Answer">
+            <input id="wrongOneInput" type="text" placeholder="Wrong Answer 1">
+            <input id="wrongTwoInput" type="text" placeholder="Wrong Answer 2">
+            <button type="submit" class="btn btn-success" id="submitQuestion">Add Question</button>
+        </div>
+        <div class="questionsTable">
+            <h3> Questions List</h3>
+            <table class="table " id="questionList"></table>
+        </div>
+        <div>
+            <input type="text" id="playerName"/>
+            <button class="btn btn-success" id="startQuiz">Start Quiz</button>
+            <button class="btn btn-danger" id="deleteQuiz">Delete Quiz</button>
+        </div>
+    </div>
+    <p id="answersCorrect"></p>
+    <div id="questionsWrapper"></div>
+    <div id="history">
+
+    </div>
+</div>
+</body>
+<script src="js/main.js"></script>
+</html>
